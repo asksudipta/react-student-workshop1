@@ -1,0 +1,40 @@
+table {
+    max-width: 100%;
+    align-items: center;
+    font-family: Arial;
+    border-collapse: collapse;
+}
+th, td {
+    text-align: left;
+    white-space: 30px;
+    padding: 05px;
+    border:   1px solid;
+}
+
+thead {
+    background-color: rgb(242, 235, 235);
+}
+
+tbody tr:nth-child(odd) {
+    background-color: lightgray;
+}
+
+tbody tr:nth-child(even) {
+    background-color:whitesmoke;
+}
+.delete-btn {
+    background-color: #e07a7a;
+    padding: 10px 30px;
+    border-radius: 1px;
+}
+    
+.edit-btn {
+    background-color: rgb(208, 180, 23);
+    padding: 10px 30px;
+}
+
+    
+.details-btn {
+    background-color: rgb(18, 134, 160);
+    padding: 10px 30px;
+}
