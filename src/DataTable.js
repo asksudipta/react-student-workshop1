@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./table.css";
+//import "./table.css";
 
 const DataTable = () => {
   // arrow function
@@ -13,9 +13,10 @@ const DataTable = () => {
       country: "Sweden",
       city: "Helsingborg",
     },
+   
     {
       id: 2,
-      firstName: "Sandy",
+      firstName: "Linda",
       lastName: "Svensson",
       age: 30,
       country: "Sweden",
@@ -27,17 +28,23 @@ const DataTable = () => {
   // table header component
   const TableHeaderComponent = () => {
     return (
-      <thead>
-        <tr>
-          <th>Id </th>
-          <th>FirstName </th>
-          <th>LastName </th>
-          <th>Age </th>
-          <th>Country </th>
-          <th>City </th>
-          <th>Action </th>
-        </tr>
-      </thead>
+      <div class="container">
+        <h5>Student List</h5>
+
+        <table class="table table-striped">
+          <thead>
+            <tr class="active">
+              <th>Id </th>
+              <th>FirstName </th>
+              <th>LastName </th>
+              <th>Age </th>
+              <th>Country </th>
+              <th>City </th>
+              <th>Action </th>
+            </tr>
+          </thead>
+        </table>
+      </div>
     );
   };
 
@@ -45,14 +52,8 @@ const DataTable = () => {
   const TableActionComponent = (props) => {
     return (
       <>
-        <button
-          onClick={() => props.onDetailButtonClick()}
-          type="button"
-          className="btn btn-primery"
-        >
-          Details{" "}
-        </button>
-      </>
+      <button type='button' onClick={() => props.onDetailButtonClick()} className='btn btn-primary' >Details</button>
+      </> 
     );
   };
 
@@ -60,17 +61,25 @@ const DataTable = () => {
   const TableRowComponent = (props) => {
     return (
       <tr>
-        <th>{props.id}</th>
-        <th>{props.firstName} </th>
-        <th>{props.lastName} </th>
-        <th>{props.age} </th>
-        <th>{props.country} </th>
-        <th>{props.city} </th>
-        <th>
-          <TableActionComponent
-            onDetailButtonClick={props.onDetailButtonClick}
-          />
-        </th>
+        <div class="container">
+        <table class="table table-striped">
+          
+            <thead>
+              <tr class="active">
+                <th>{props.id}</th>
+                <th>{props.firstName} </th>
+                <th>{props.lastName} </th>
+                <th>{props.age} </th>
+                <th>{props.country} </th>
+                <th>{props.city} </th>
+                <th> {props.Action}</th>
+                <td>
+                <TableActionComponent onDetailButtonClick={props.onDetailButtonClick} />
+                </td>
+              </tr>
+            </thead>
+          </table>
+        </div>
       </tr>
     );
   };
@@ -80,16 +89,18 @@ const DataTable = () => {
     return (
       <>
         <button onClick={() => setShowDetails(false)}>hide </button>
+        
       </>
     );
   };
+
+   // main or datatable
   const onDetailButtonClick = () => {
     setShowDetails(true);
   };
-  // main or datatable
   return (
     <div>
-      <table className="table table-dark" border="1"></table>
+     <table className="table table-dark" border="1"></table>
       <TableHeaderComponent />
       <tbody>
         {student &&
